@@ -1,5 +1,6 @@
-docimgs
-doc build -t danenja/node-web-app:1.0 . => execute this command in the directory where the Dockerfile is
-docker tag danenja/node-web-app:1.0 danenja/node-web-app:1.0
-docker login
-docker push danenja/node-web-app:1.0
+docker images						=> list images
+docker build -t danenja/node-web-app:1.0 . 			=> execute this command in the directory where the Dockerfile is
+docker images						=> list images again to make sure the image was built
+docker tag danenja/node-web-app:1.0 danenja/node-web-app:1.0	=> tag the image for pushing to docker hub
+docker login						=> login to docker hub using username & password
+docker push danenja/node-web-app:1.0				=> push to docker hub
