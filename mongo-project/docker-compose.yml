@@ -10,17 +10,20 @@ services:
     networks:
       - mongo-network
     container_name: mongodb
+
   mongo-express:
     image: mongo-express
     ports:
-      - 8081:8081
+      - 8081
     environment:
       - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
       - ME_CONFIG_MONGODB_ADMINPASSWORD=supersecret
       - ME_CONFIG_MONGODB_SERVER=mongodb
     networks:
       - mongo-network
-    container_name: mongo-express
+    deploy:
+      replicas: 2 #Number of mongo express instances to be deployed and ran
+      #execute => docker-compose up --scale mongo-express=3
 
 networks:
   mongo-network:
