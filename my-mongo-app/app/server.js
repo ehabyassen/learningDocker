@@ -28,13 +28,14 @@ let databaseName = "myDB";
 let collectionName = "myCollection";
 
 app.get('/fetch-data', function (req, res) {
+  const name = req.query.name;
   let response = {};
   MongoClient.connect(mongoUrlDockerCompose, mongoClientOptions, function (err, client) {
     if (err) throw err;
 
     let db = client.db(databaseName);
 
-    let myquery = { name: "Ehab" };
+    let myquery = { name: name };
 
     db.collection(collectionName).findOne(myquery, function (err, result) {
       if (err) throw err;
