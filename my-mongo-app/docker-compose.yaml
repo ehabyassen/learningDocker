@@ -1,6 +1,6 @@
 services:
   my-app:
-    build: .
+    #build: .
     image: danenja/my-mongo-app:1.0
     ports:
      - 3000:3000
